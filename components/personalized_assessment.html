@@ -1,0 +1,15 @@
+<!-- templates/api/personalized_assessment.html -->
+
+<h1>Assessments for {{ course.title }}</h1>
+<ul>
+    {% for assessment in assessments %}
+        <li>{{ assessment.title }}</li>
+        <ul>
+            {% for question in assessment.question_set.all %}
+                <li>{{ question.question_text }}</li>
+                <!-- Add form elements for answering questions -->
+                <input type="text" name="answer_{{ question.id }}">
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</ul>

@@ -1,0 +1,27 @@
+<!-- templates/api/personalized_dashboard.html -->
+<!-- <h1>Recommended Courses</h1>
+<ul>
+    {% for course in recommendations %}
+        <li>{{ course.title }} - {{ course.description }}</li>
+    {% endfor %}
+</ul> -->
+
+
+<!-- templates/api/personalized_dashboard.html -->
+<h1>Welcome, {{ user_profile.user.username }}</h1>
+<h2>Recommended Courses</h2>
+<ul>
+    {% for course in recommendations %}
+        <li>{{ course.title }} - {{ course.description }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Your Progress</h2>
+<p>Current Lesson: {{ user_profile.current_lesson.title }}</p>
+<p>Completed Lessons:</p>
+<ul>
+    {% for lesson in user_profile.completed_lessons.all %}
+        <li>{{ lesson.title }}</li>
+    {% endfor %}
+</ul>
+
